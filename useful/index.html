@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Portfolio</title>
+    <link type="text/css" rel="stylesheet" href="css/portfolio-stylesheet.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div id="progress-bar"></div>
+    <header>
+        <nav>
+            <img src="images/logo.svg" alt="Logo" class="logo" onclick="location.href='index.html'" tabindex="0">
+            <ul class="nav-links">
+                <li><a href="#projects"><b>Projects</b></a></li>
+                <li><a href="#about"><b>About</b></a></li>
+                <li><a href="#feedback"><b>Endorsements</b></a></li>
+                <li><a href="mailto:your-email@example.com" class="email-button">Email me</a></li>
+            </ul>
+            <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        </nav>
+    </header>
+    <div class="mobile-nav">
+        <img src="images/logo.svg" alt="Logo" class="logo" onclick="location.href='index.html'" tabindex="0">
+        <ul>
+            <li><a href="#projects" onclick="toggleMenu()"><b>Projects</b></a></li>
+            <li><a href="#about" onclick="toggleMenu()"><b>About</b></a></li>
+            <li><a href="#feedback" onclick="toggleMenu()"><b>Endorsements</b></a></li>
+            <li><a href="mailto:your-email@example.com" class="email-button-mobile" onclick="toggleMenu()">Email me</a></li>
+        </ul>
+    </div>
+    <section id="banner">
+        <div class="banner-content">
+            <h1>Lorem ipsum dolor sit amet</h1>
+            <p>Product Design Lead</p>
+        </div>
+    </section>
+    
+    <section id="additional-info">
+        <div class="additional-info-content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <div class="button-container">
+                <button onclick="location.href='mailto:your-email@example.com'">Email me</button>
+                <button onclick="copyEmail()">Copy email</button>
+            </div>
+        </div>
+    </section>
+    <section id="carousel">
+        <div class="carousel-container">
+            <img src="images/company-1.png" alt="Company Logo" class="carousel-logo">
+            <img src="images/company-2.png" alt="Company Logo" class="carousel-logo">
+            <img src="images/company-3.png" alt="Company Logo" class="carousel-logo">
+            <img src="images/company-4.png" alt="Company Logo" class="carousel-logo">
+            <img src="images/company-5.png" alt="Company Logo" class="carousel-logo">
+            <img src="images/company-6.png" alt="Company Logo" class="carousel-logo">
+            <img src="images/company-7.png" alt="Company Logo" class="carousel-logo">
+            <img src="images/company-8.png" alt="Company Logo" class="carousel-logo">
+            <img src="images/company-9.png" alt="Company Logo" class="carousel-logo">
+            <!-- Duplicate logos for seamless loop -->
+            <img src="images/company-1.png" alt="Company Logo" class="carousel-logo">
+            <img src="images/company-2.png" alt="Company Logo" class="carousel-logo">
+            <img src="images/company-3.png" alt="Company Logo" class="carousel-logo">
+            <img src="images/company-4.png" alt="Company Logo" class="carousel-logo">
+            <img src="images/company-5.png" alt="Company Logo" class="carousel-logo">
+            <img src="images/company-6.png" alt="Company Logo" class="carousel-logo">
+            <img src="images/company-7.png" alt="Company Logo" class="carousel-logo">
+            <img src="images/company-8.png" alt="Company Logo" class="carousel-logo">
+            <img src="images/company-9.png" alt="Company Logo" class="carousel-logo">
+        </div>
+    </section>
+    <div class="padding-bottom-2"></div>
+<section id="tags-section">
+    <div class="tags-content">
+        <span class="tag">Tag 1</span>
+        <span class="tag">Tag 2</span>
+        <span class="tag">Tag 3</span>
+        <span class="tag">Tag 4</span>
+        <span class="tag">Tag 5</span>
+        <span class="tag">Tag 6</span>
+        <span class="tag">Tag 7</span>
+        <span class="tag">Tag 8</span>
+        <span class="tag">Tag 9</span>
+        <span class="tag">Tag 10</span>
+        <span class="tag">Tag 11</span>
+        <span class="tag">Tag 12</span>
+    </div>
+</section>
+
+<div class="section-break-container">
+    <hr class="section-break section-break--s">
+</div>
+
+<!-- Projects Section -->
+<section id="projects">
+    <div class="projects-container">
+        <div class="projects-header">
+            <h2>Project Spotlights</h2>
+            <div class="filter-links">
+                <a href="#" class="filter-link active" data-filter="all">All</a>
+                <a href="#" class="filter-link" data-filter="third-sector">Third Sector</a>
+                <a href="#" class="filter-link" data-filter="private">Private</a>
+                <a href="#" class="filter-link" data-filter="public">Public</a>
+            </div>
+        </div>
+        <div class="project-tiles">
+            <div class="tile" data-category="third-sector">
+                <a href="project-1.html">
+                <img src="images/third-sector-1.png" alt="Third Sector" class="project-image">
+                <div class="tile-content">
+                    <h3>Third Sector <span class="material-icons">favorite</span></h3>
+                    <p>Description for Third Sector</p>
+                </div>
+                </a>
+            </div>
+            <div class="tile" data-category="private">
+                <a href="project-2.html">
+                <img src="images/private-1.png" alt="Private" class="project-image">
+                <div class="tile-content">
+                    <h3>Private <span class="material-icons">rocket</span></h3>
+                    <p>Description for Private</p>
+                </div>
+                </a>
+            </div>
+            <div class="tile" data-category="public">
+                <a href="project-3.html">
+                <img src="images/public-1.png" alt="Public" class="project-image">
+                <div class="tile-content">
+                    <h3>Public <span class="material-icons">public</span></h3>
+                    <p>Description for Public</p>
+                </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-break-container">
+    <hr class="section-break section-break--s">
+</div>
+
+<!-- About Section -->
+<section id="about">
+    <div class="about-content">
+        <img src="images/headshot.png" alt="Your Image" class="about-image">
+        <div class="about-text">
+            <h2>About</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+    </div>
+</section>
+
+<div class="section-break-container">
+    <hr class="section-break section-break--s">
+</div>
+
+<!-- Feedback Section -->
+<section id="feedback">
+    <div class="feedback-container">
+        <div class="feedback-header">
+            <h2>Feedback</h2>
+        </div>
+        <div class="feedback-tiles">
+            <div class="feedback-tile">
+                <p class="feedback-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p class="feedback-name">Person 1</p>
+                <img src="images/company-2-feedback.png" alt="Company Logo 1" class="company-logo">
+            </div>
+            <div class="feedback-tile">
+                <p>Feedback quote 2</p>
+                <p class="feedback-name">Person 2</p>
+                <img src="images/company-1-feedback.png" alt="Company Logo 2" class="company-logo">
+            </div>
+            <div class="feedback-tile">
+                <p>Feedback quote 3</p>
+                <p class="feedback-name">Person 3</p>
+                <img src="images/company-3-feedback.png" alt="Company Logo 3" class="company-logo">
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="padding-bottom-2"></div>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-left">
+        <img src="images/footer-logo.svg" alt="Logo" class="footer-logo animated-logo" tabindex="0">
+        <a href="https://www.linkedin.com/" target="_blank">
+            <img src="images/linkedin-logo.svg" alt="LinkedIn" class="social-logo">
+        </a>
+        <a href="https://www.instagram.com/your-profile" target="_blank">
+            <img src="images/instagram-logo.svg" alt="Instagram" class="social-logo">
+        </a>
+    </div>
+    <div class="footer-right">
+        <p>Portfolio Name <span id="current-year"></span> &copy;</p>
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
