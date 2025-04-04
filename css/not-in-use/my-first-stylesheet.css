@@ -1,0 +1,333 @@
+
+body {
+    background-color: White;
+    color: #111111;
+    /* border: 2px solid Gray; */
+    font-family: 'Poppins', sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1024px;
+    min-width: 256px;
+    padding-top: 8px;
+    padding-bottom: 24px;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+h1 {
+    background-color: #e8e7ed;
+    font-size: 32px;
+}
+
+nav ul {
+    list-style-type: none;
+    border: 4px solid #111111;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif'';
+    font-weight: bold;
+    padding: 16px;
+}
+nav ul li {
+    display: inline;
+    margin: 0px;
+    border-right: 2px solid #111111;
+    padding-right: 8px;
+    padding-left: 8px;
+}
+nav ul li:last-child {
+    border-right: none;
+}
+nav ul li a {
+    text-decoration: none;
+    color: #111111;
+}
+
+nav li.selected {
+  color: #606060;
+}
+
+nav li a:hover {
+  text-decoration: underline;
+}
+
+a:link{
+  color:blue;
+}
+a:visited{
+  color: purple;
+}
+a:hover{
+  text-decoration: underline;
+}
+a:active{
+  text-decoration: underline;
+  background-color: black;
+  color: white;
+}
+
+p.top-tip {
+    border: 4px solid #00AFEB;
+    border-radius: 10px;
+    padding: 16px;
+    background-color: #C5EBFB;
+}
+
+p.top-tip: :before {
+    color: Black;
+    content: "Mega Tip! ";
+    font-weight:bold; 
+}
+  
+html {
+    background: radial-gradient(circle, SkyBlue, SkyBlue 50%, LightCyan 50%, SkyBlue);
+    background-size: 8px 8px;
+}
+
+table {
+  font-size: 70%;
+  border-collapse: collapse:
+  width: 100%;
+}
+th,td {
+  border: 1px solid #000000;
+  padding: 8px;
+  text-align: left;
+}
+  th {
+    background-color: #FCAB68;
+  }
+    td {
+      background-color: #ba99c0;  
+    }  
+
+.poppins-thin {
+    font-family: "Poppins", serif;
+    font-weight: 100;
+    font-style: normal;
+  }
+  
+  .poppins-extralight {
+    font-family: "Poppins", serif;
+    font-weight: 200;
+    font-style: normal;
+  }
+  
+  .poppins-light {
+    font-family: "Poppins", serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  .poppins-regular {
+    font-family: "Poppins", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .poppins-medium {
+    font-family: "Poppins", serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  .poppins-semibold {
+    font-family: "Poppins", serif;
+    font-weight: 600;
+    font-style: normal;
+  }
+  
+  .poppins-bold {
+    font-family: "Poppins", serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  .poppins-extrabold {
+    font-family: "Poppins", serif;
+    font-weight: 800;
+    font-style: normal;
+  }
+  
+  .poppins-black {
+    font-family: "Poppins", serif;
+    font-weight: 900;
+    font-style: normal;
+  }
+  
+  .poppins-thin-italic {
+    font-family: "Poppins", serif;
+    font-weight: 100;
+    font-style: italic;
+  }
+  
+  .poppins-extralight-italic {
+    font-family: "Poppins", serif;
+    font-weight: 200;
+    font-style: italic;
+  }
+  
+  .poppins-light-italic {
+    font-family: "Poppins", serif;
+    font-weight: 300;
+    font-style: italic;
+  }
+  
+  .poppins-regular-italic {
+    font-family: "Poppins", serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  .poppins-medium-italic {
+    font-family: "Poppins", serif;
+    font-weight: 500;
+    font-style: italic;
+  }
+  
+  .poppins-semibold-italic {
+    font-family: "Poppins", serif;
+    font-weight: 600;
+    font-style: italic;
+  }
+  
+  .poppins-bold-italic {
+    font-family: "Poppins", serif;
+    font-weight: 700;
+    font-style: italic;
+  }
+  
+  .poppins-extrabold-italic {
+    font-family: "Poppins", serif;
+    font-weight: 800;
+    font-style: italic;
+  }
+  
+  .poppins-black-italic {
+    font-family: "Poppins", serif;
+    font-weight: 900;
+    font-style: italic;
+  }
+
+  /* technical stuff - set sizing to border box method */
+  
+  html {
+    box-sizing: border-box;
+  }
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+  /* style the various structural elements */
+  html {
+    background-color: Grey;
+  }
+
+  body {
+    background-color: White;
+  }
+
+  header {
+    background-color: #F45556;
+  }
+
+  nav {
+    background-color: #FCAB68;
+  }
+
+  article {
+    background-color: #FFD239;
+  }
+
+  section {
+    background-color: #88BB75;
+    margin-bottom: 24px;
+    min-height: 320px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  aside {
+    background-color: #1EADDF;
+  }
+
+  footer {
+    background-color: #BA99C0;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 10px;
+      padding-right: 10px;
+      margin-bottom: 0px;
+  }
+
+  img.small {
+    float: left;
+    height: 200px;
+    margin-bottom: 24px;
+    margin-right: 24px;
+  }
+
+  img.medium {
+    max-width: 360px;
+    width: 50%;
+  }
+
+  img.large {
+    width: 100%;
+  }
+
+  header p.top-nav-1 {
+    float: left;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+
+  }
+
+  header p.top-nav-2 {
+    float: right;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  header p {
+    float: left;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 0px;
+  }
+
+  header h1 {
+    font-size: 16px;
+    text-align: right;
+  }
+
+  footer p.copyright {
+    float: left;
+  }
+
+  footer p.contact {
+    text-align: right;
+  }
+
+  body, section, img {
+    border: 2px solid Gray;
+    border-radius: 16px;
+  }
+
+  @media all and (min-width: 900px)
+  {
+    article{
+      float: left;
+      width: 66%;
+    }
+    aside {
+      float: right;
+      padding-left: 24px;
+      width: 34%;
+    }
+    footer {
+      clear: both;
+    }
+  }
