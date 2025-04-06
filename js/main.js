@@ -153,24 +153,24 @@ window.addEventListener('load', () => {
   }
 });
 
-document.addEventListener("DOMContentLoaded", function() {
-  const bannerContents = document.querySelectorAll('.banner-content');
-  bannerContents.forEach(function(bannerContent) {
-      bannerContent.classList.add('fade-in');
-  });
-});
+// document.addEventListener("DOMContentLoaded", function() {
+//   const bannerContents = document.querySelectorAll('.banner-content');
+//   bannerContents.forEach(function(bannerContent) {
+//       bannerContent.classList.add('fade-in');
+//   });
+// });
 
-window.addEventListener("pageshow", function(event) {
-  if (event.persisted || performance.navigation.type === 2) {
-      const bannerContents = document.querySelectorAll('.banner-content');
-      bannerContents.forEach(function(bannerContent) {
-          bannerContent.classList.remove('fade-in');
-          requestAnimationFrame(() => {
-              bannerContent.classList.add('fade-in');
-          });
-      });
-  }
-});
+// window.addEventListener("pageshow", function(event) {
+//   if (event.persisted || performance.navigation.type === 2) {
+//       const bannerContents = document.querySelectorAll('.banner-content');
+//       bannerContents.forEach(function(bannerContent) {
+//           bannerContent.classList.remove('fade-in');
+//           requestAnimationFrame(() => {
+//               bannerContent.classList.add('fade-in');
+//           });
+//       });
+//   }
+// });
 
 
 
@@ -290,11 +290,11 @@ footerLogo.addEventListener('keydown', function(event) {
 //       const tile = document.querySelector('.single-tile-project-2');
 //       const img = tile.querySelector('.project-image');
 //       if (window.innerWidth <= 768) {
-//           img.src = 'images/private-1.png';
+//           img.src = 'images/private-1-single.png';
 //       } else if (window.innerWidth <= 1024) {
-//           img.src = 'images/private-2.png';
+//           img.src = 'images/private-2-single.png';
 //       } else {
-//           img.src = 'images/private-3.png';
+//           img.src = 'images/private-3-single.png';
 //       }
 //   }
 
@@ -374,9 +374,9 @@ footerLogo.addEventListener('keydown', function(event) {
 //   }
 
 //   // Initialize tiles with different images and links
-//   initializeTile('.single-tile-project-1', 'images/third-sector-1.png', 'images/third-sector-2.png', 'images/third-sector-3.png', 'highlight-project.html');
-//   initializeTile('.single-tile-project-2', 'images/private-1.png', 'images/private-2.png', 'images/private-3.png', 'private-project.html');
-//   initializeTile('.single-tile-project-3', 'images/public-1.png', 'images/public-2.png', 'images/public-3.png', 'public-project.html');
+//   initializeTile('.single-tile-project-1', 'images/third-sector-1-single.png', 'images/third-sector-2-single.png', 'images/third-sector-3-single.png', 'highlight-project.html');
+//   initializeTile('.single-tile-project-2', 'images/private-1-single.png', 'images/private-2-single.png', 'images/private-3-single.png', 'private-project.html');
+//   initializeTile('.single-tile-project-3', 'images/public-1-single.png', 'images/public-2-single.png', 'images/public-3-single.png', 'public-project.html');
 // });
 
 // h4 {
@@ -388,3 +388,64 @@ footerLogo.addEventListener('keydown', function(event) {
 //   margin-left: 8px; /* Adjust spacing as needed */
 //   font-size: 1em; /* Ensures the icon resizes with the text */
 // }
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  function updateImage(tileClass, imgSrcSmall, imgSrcMedium, imgSrcLarge) {
+      const tile = document.querySelector(tileClass);
+      if (tile) {
+          const img = tile.querySelector('.project-image');
+          if (window.innerWidth <= 768) {
+              img.src = imgSrcSmall;
+          } else if (window.innerWidth <= 1024) {
+              img.src = imgSrcMedium;
+          } else {
+              img.src = imgSrcLarge;
+          }
+      }
+  }
+
+  function initializeTile(tileClass, imgSrcSmall, imgSrcMedium, imgSrcLarge, link) {
+      updateImage(tileClass, imgSrcSmall, imgSrcMedium, imgSrcLarge); // Initial call to set the image based on screen size
+
+      window.addEventListener('resize', function() {
+          updateImage(tileClass, imgSrcSmall, imgSrcMedium, imgSrcLarge); // Update image on window resize
+      });
+
+      const tileLink = document.querySelector(tileClass + ' a');
+      if (tileLink) {
+          tileLink.addEventListener('click', function(event) {
+              event.preventDefault();
+              const target = this.getAttribute('href');
+              document.body.style.transition = 'opacity 0.5s ease-in-out';
+              document.body.style.opacity = '0';
+              setTimeout(() => {
+                  window.location.href = target;
+              }, 500);
+          });
+      }
+  }
+
+  // Initialize tiles with different images and links
+  initializeTile('.single-tile-project-1', 'images/third-sector-1-single.png', 'images/third-sector-2-single.png', 'images/third-sector-3-single.png', 'highlight-project.html');
+  initializeTile('.single-tile-project-2', 'images/private-1-single.png', 'images/private-2-single.png', 'images/private-3-single.png', 'private-project.html');
+  initializeTile('.single-tile-project-3', 'images/public-1-single.png', 'images/public-2-single.png', 'images/public-3-single.png', 'public-project.html');
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+  const bannerContents = document.querySelectorAll('.banner-content');
+  bannerContents.forEach(function(bannerContent) {
+      bannerContent.classList.add('fade-in');
+  });
+
+  window.addEventListener("pageshow", function(event) {
+      if (event.persisted || performance.navigation.type === 2) {
+          bannerContents.forEach(function(bannerContent) {
+              bannerContent.classList.remove('fade-in');
+              requestAnimationFrame(() => {
+                  bannerContent.classList.add('fade-in');
+              });
+          });
+      }
+  });
+});

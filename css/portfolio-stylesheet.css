@@ -244,6 +244,7 @@ header {
 
 .fade-in {
   opacity: 1;
+  transition: opacity 1s ease-in-out;
 }
 
 @media (max-width: 768px) {
