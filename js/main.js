@@ -396,12 +396,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const tiles = document.querySelectorAll(tileClass);
     tiles.forEach(tile => {
       const img = tile.querySelector('.project-image');
-      if (window.innerWidth <= 768) {
-        img.src = imgSrcSmall;
-      } else if (window.innerWidth <= 1024) {
-        img.src = imgSrcMedium;
-      } else {
-        img.src = imgSrcLarge;
+      if (img) {
+        if (window.innerWidth <= 768) {
+          img.src = imgSrcSmall;
+        } else if (window.innerWidth <= 1024) {
+          img.src = imgSrcMedium;
+        } else {
+          img.src = imgSrcLarge;
+        }
       }
     });
   }
@@ -415,10 +417,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Initialize tiles for projects-container section
-  initializeTile('.tile[data-category="third-sector"]', 'images/third-sector-1.png', 'images/third-sector-2.png', 'images/third-sector-3.png');
-  initializeTile('.tile[data-category="private"]', 'images/private-1.png', 'images/private-2.png', 'images/private-3.png');
-  initializeTile('.tile[data-category="public"]', 'images/public-1.png', 'images/public-2.png', 'images/public-3.png');
+  // Initialize tiles for both single-project and projects-container sections
+  initializeTile('.single-tile-project-1, .tile[data-category="third-sector"]', 'images/third-sector-1-single.png', 'images/third-sector-2-single.png', 'images/third-sector-3-single.png');
+  initializeTile('.single-tile-project-2, .tile[data-category="private"]', 'images/private-1-single.png', 'images/private-2-single.png', 'images/private-3-single.png');
+  initializeTile('.single-tile-project-3, .tile[data-category="public"]', 'images/public-1-single.png', 'images/public-2-single.png', 'images/public-3-single.png');
 
   // Function to handle banner content fade-in
   const bannerContents = document.querySelectorAll('.banner-content');
@@ -437,7 +439,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
-
 
 console.log('Banner content:', bannerContent);
 console.log('Image source updated to:', img.src);
