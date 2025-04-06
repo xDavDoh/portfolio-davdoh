@@ -393,8 +393,8 @@ footerLogo.addEventListener('keydown', function(event) {
 document.addEventListener('DOMContentLoaded', function() {
   // Function to update images based on screen size
   function updateImage(tileClass, imgSrcSmall, imgSrcMedium, imgSrcLarge) {
-    const tile = document.querySelector(tileClass);
-    if (tile) {
+    const tiles = document.querySelectorAll(tileClass);
+    tiles.forEach(tile => {
       const img = tile.querySelector('.project-image');
       if (window.innerWidth <= 768) {
         img.src = imgSrcSmall;
@@ -403,7 +403,7 @@ document.addEventListener('DOMContentLoaded', function() {
       } else {
         img.src = imgSrcLarge;
       }
-    }
+    });
   }
 
   // Function to initialize tiles with different images and links
@@ -414,11 +414,6 @@ document.addEventListener('DOMContentLoaded', function() {
       updateImage(tileClass, imgSrcSmall, imgSrcMedium, imgSrcLarge); // Update image on window resize
     });
   }
-
-  // Initialize tiles for single-project section
-  initializeTile('.single-tile-project-1', 'images/third-sector-1-single.png', 'images/third-sector-2-single.png', 'images/third-sector-3-single.png');
-  initializeTile('.single-tile-project-2', 'images/private-1-single.png', 'images/private-2-single.png', 'images/private-3-single.png');
-  initializeTile('.single-tile-project-3', 'images/public-1-single.png', 'images/public-2-single.png', 'images/public-3-single.png');
 
   // Initialize tiles for projects-container section
   initializeTile('.tile[data-category="third-sector"]', 'images/third-sector-1.png', 'images/third-sector-2.png', 'images/third-sector-3.png');
@@ -442,6 +437,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+
 
 console.log('Banner content:', bannerContent);
 console.log('Image source updated to:', img.src);
