@@ -1124,9 +1124,14 @@ html {
   height: auto;
 } */
 
-.project-image {
-  display: block; /* Ensure images are displayed */
-  width: 100%; /* Adjust width for responsiveness */
+@media (max-width: 768px) {
+  .project-image {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    max-width: 100% !important;
+    height: auto !important;
+  }
 }
 
 /* Media query for tablets */

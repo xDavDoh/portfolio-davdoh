@@ -452,3 +452,40 @@ document.addEventListener('DOMContentLoaded', function() {
     bannerContent.classList.add('fade-in');
   }
 });
+
+
+// Add this at the end of your JavaScript file
+(function() {
+  // Function to update images only on mobile
+  function fixMobileImages() {
+    // Only run on mobile
+    if (window.innerWidth > 768) return;
+    
+    // Get all project tiles
+    document.querySelectorAll('.tile').forEach(tile => {
+      const img = tile.querySelector('.project-image');
+      const category = tile.getAttribute('data-category');
+      
+      if (img && category) {
+        // Force set the correct mobile image
+        img.setAttribute('src', `images/${category}-3.png`);
+        
+        // Log for debugging
+        console.log(`Set mobile image for ${category}: images/${category}-3.png`);
+      }
+    });
+  }
+  
+  // Run on page load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', fixMobileImages);
+  } else {
+    fixMobileImages();
+  }
+  
+  // Run on resize
+  window.addEventListener('resize', fixMobileImages);
+  
+  // Run again after a short delay to ensure it works
+  setTimeout(fixMobileImages, 1000);
+})();
