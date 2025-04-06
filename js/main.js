@@ -391,101 +391,57 @@ footerLogo.addEventListener('keydown', function(event) {
 
 
 document.addEventListener('DOMContentLoaded', function() {
-  // Remove the first updateImages function and its event listener
-  
   // Function to update images based on screen size
-  function updateImage(selector, imgSrcMobile, imgSrcTablet, imgSrcDesktop) {
-    const elements = document.querySelectorAll(selector);
-    elements.forEach(element => {
-      const img = element.querySelector('.project-image');
+  function updateImage(tileClass, imgSrcSmall, imgSrcMedium, imgSrcLarge) {
+    const tiles = document.querySelectorAll(tileClass);
+    tiles.forEach(tile => {
+      const img = tile.querySelector('.project-image');
       if (img) {
         if (window.innerWidth <= 768) {
-          img.src = imgSrcMobile;
+          img.src = imgSrcSmall;
         } else if (window.innerWidth <= 1024) {
-          img.src = imgSrcTablet;
+          img.src = imgSrcMedium;
         } else {
-          img.src = imgSrcDesktop;
+          img.src = imgSrcLarge;
         }
       }
     });
   }
 
-  // Update all project tiles
-  function updateAllImages() {
-    // Update main project tiles
-    updateImage('.tile[data-category="third-sector"]', 
-      'images/third-sector-3.png', 
-      'images/third-sector-2.png', 
-      'images/third-sector-1.png');
-    
-    updateImage('.tile[data-category="private"]', 
-      'images/private-3.png', 
-      'images/private-2.png', 
-      'images/private-1.png');
-    
-    updateImage('.tile[data-category="public"]', 
-      'images/public-3.png', 
-      'images/public-2.png', 
-      'images/public-1.png');
-    
-    // Update single tiles
-    updateImage('.single-tile[data-category="highlight"]', 
-      'images/third-sector-3-single.png', 
-      'images/third-sector-2-single.png', 
-      'images/third-sector-1-single.png');
-  }
+  // Function to initialize tiles with different images and links
+  function initializeTile(tileClass, imgSrcSmall, imgSrcMedium, imgSrcLarge) {
+    updateImage(tileClass, imgSrcSmall, imgSrcMedium, imgSrcLarge); // Initial call to set the image based on screen size
 
-  // Initial update
-  updateAllImages();
-  
-  // Update on window resize
-  window.addEventListener('resize', updateAllImages);
-  
-  // Banner content fade-in fix
-  const bannerContent = document.querySelector('.banner-content');
-  if (bannerContent) {
-    // Remove any existing classes first
-    bannerContent.classList.remove('fade-in');
-    // Force a reflow
-    void bannerContent.offsetWidth;
-    // Add the fade-in class
-    bannerContent.classList.add('fade-in');
-  }
-});
-
-
-// Add this at the end of your JavaScript file
-(function() {
-  // Function to update images only on mobile
-  function fixMobileImages() {
-    // Only run on mobile
-    if (window.innerWidth > 768) return;
-    
-    // Get all project tiles
-    document.querySelectorAll('.tile').forEach(tile => {
-      const img = tile.querySelector('.project-image');
-      const category = tile.getAttribute('data-category');
-      
-      if (img && category) {
-        // Force set the correct mobile image
-        img.setAttribute('src', `images/${category}-3.png`);
-        
-        // Log for debugging
-        console.log(`Set mobile image for ${category}: images/${category}-3.png`);
-      }
+    window.addEventListener('resize', function() {
+      updateImage(tileClass, imgSrcSmall, imgSrcMedium, imgSrcLarge); // Update image on window resize
     });
   }
+
+  // Initialize tiles for both single-project and projects-container sections
+  initializeTile('.single-tile-project-1, .tile[data-category="third-sector"]', 'images/third-sector-1-single.png', 'images/third-sector-2-single.png', 'images/third-sector-3-single.png');
+  initializeTile('.single-tile-project-2, .tile[data-category="private"]', 'images/private-1-single.png', 'images/private-2-single.png', 'images/private-3-single.png');
+  initializeTile('.single-tile-project-3, .tile[data-category="public"]', 'images/public-1-single.png', 'images/public-2-single.png', 'images/public-3-single.png');
+
   
-  // Run on page load
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', fixMobileImages);
-  } else {
-    fixMobileImages();
-  }
-  
-  // Run on resize
-  window.addEventListener('resize', fixMobileImages);
-  
-  // Run again after a short delay to ensure it works
-  setTimeout(fixMobileImages, 1000);
-})();
+  // Function to handle banner content fade-in
+  const bannerContents = document.querySelectorAll('.banner-content');
+  bannerContents.forEach(function(bannerContent) {
+    bannerContent.classList.add('fade-in');
+  });
+
+  window.addEventListener("pageshow", function(event) {
+    if (event.persisted || performance.navigation.type === 2) {
+      bannerContents.forEach(function(bannerContent) {
+        bannerContent.classList.remove('fade-in');
+        requestAnimationFrame(() => {
+          bannerContent.classList.add('fade-in');
+        });
+      });
+    }
+  });
+});
+
+// Check if this function exists anywhere in your code
+function isMobileDevice() {
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
