@@ -37,56 +37,45 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Update project images based on device and screen size
   function updateProjectImages() {
-    console.log("Updating project images. Mobile: " + isMobileDevice() + ", Width: " + window.innerWidth);
-    
-    // Update main project tiles
-    const projectTiles = document.querySelectorAll('.tile');
-    projectTiles.forEach(tile => {
+    const isMobile = window.innerWidth <= 768;
+    const isTablet = window.innerWidth <= 1024 && !isMobile;
+  
+    document.querySelectorAll('.tile').forEach(tile => {
       const category = tile.getAttribute('data-category');
       const img = tile.querySelector('.project-image');
-      
-      if (img && category) {
-        let newSrc;
-        
-        // For mobile devices, use the -1-single.png images that we know work
-        if (isMobileDevice()) {
-          newSrc = `images/${category}-1-single.png`;
-        } else if (window.innerWidth <= 1024) {
-          newSrc = `images/${category}-2.png`;
-        } else {
-          newSrc = `images/${category}-1.png`;
-        }
-        
-        console.log(`Setting image for ${category} to ${newSrc}`);
-        img.src = newSrc;
-        
-        // Add error handling
-        img.onerror = function() {
-          console.error(`Failed to load image: ${newSrc}, falling back to default`);
-          this.src = `images/${category}-1.png`; // Fallback to the desktop version
-          this.onerror = null; // Prevent infinite error loop
-        };
+  
+      if (!img || !category) return;
+  
+      let newSrc = `images/${category}-1.png`; // default
+  
+      if (isMobile) {
+        newSrc = `images/${category}-1-single.png`;
+      } else if (isTablet) {
+        newSrc = `images/${category}-2.png`;
       }
-    });
-    
-    // Also update single tiles if they exist
-    const singleTiles = document.querySelectorAll('.single-tile');
-    singleTiles.forEach(tile => {
-      const category = tile.getAttribute('data-category');
-      const img = tile.querySelector('.project-image');
-      
-      if (img && category) {
-        if (isMobileDevice()) {
-          img.src = `images/${category}-1-single.png`;
-        }
+  
+      // Force reload the image
+      if (img.src !== newSrc) {
+        console.log(`Switching image for ${category} to ${newSrc}`);
+        img.src = '';
+        img.src = newSrc;
+  
+        img.onerror = function () {
+          console.error(`Failed to load image: ${newSrc}`);
+          this.src = `images/${category}-1.png`;
+          this.onerror = null;
+        };
       }
     });
   }
   
+  
   // Initialize project images
-  if (document.querySelector('.tile') || document.querySelector('.single-tile')) {
-    updateProjectImages();
-  }
+  if (document.querySelector('.tile') || document.querySelector('.single-tile')) 
+    {
+        setTimeout(updateProjectImages, 500);
+      }
+    
   
   // ===== SCROLL FUNCTIONALITY =====
   
@@ -266,3 +255,4 @@ document.addEventListener('DOMContentLoaded', function() {
   
   console.log("DOM fully loaded and parsed");
 });
+
