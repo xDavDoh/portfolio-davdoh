@@ -1135,7 +1135,7 @@ html {
 }
 
 /* Media query for tablets */
-@media (max-width: 1024px) {
+/* @media (max-width: 1024px) {
   .tile[data-category="third-sector"] .project-image {
       content: url('images/third-sector-2.png');
   }
@@ -1145,7 +1145,7 @@ html {
   .tile[data-category="public"] .project-image {
       content: url('images/public-2.png');
   }
-}
+} */
 
 /* Media query for mobile view */
 /* @media (max-width: 768px) {
