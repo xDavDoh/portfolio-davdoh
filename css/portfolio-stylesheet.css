@@ -1148,7 +1148,7 @@ html {
 }
 
 /* Media query for mobile view */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .tile[data-category="third-sector"] .project-image {
       content: url('images/third-sector-3.png');
   }
@@ -1158,7 +1158,7 @@ html {
   .tile[data-category="public"] .project-image {
       content: url('images/public-3.png');
   }
-}
+} */
 
 /* Project 1 */
 
