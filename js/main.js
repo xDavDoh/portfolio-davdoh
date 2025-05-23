@@ -59,6 +59,12 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log(`Switching image for ${category} to ${newSrc}`);
         img.src = '';
         img.src = newSrc;
+
+
+        setTimeout(() => {
+        console.log(`🔍 Final src for ${category}: ${img.src}`);
+        }, 1000);
+  
   
         img.onerror = function () {
           console.error(`Failed to load image: ${newSrc}`);
@@ -256,3 +262,24 @@ document.addEventListener('DOMContentLoaded', function() {
   console.log("DOM fully loaded and parsed");
 });
 
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (window.location.hash) {
+    const targetId = window.location.hash.substring(1);
+    const targetElement = document.getElementById(targetId);
+    const navHeight = document.querySelector('nav')?.offsetHeight || 100;
+
+    if (targetElement) {
+      // Delay scroll to ensure layout is ready
+      setTimeout(() => {
+        const elementTop = targetElement.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({
+          top: elementTop - navHeight - 20, // 20px extra spacing
+          behavior: 'smooth'
+        });
+      }, 100); // slight delay to allow layout to settle
+    }
+  }
+});
+
+  
