@@ -1372,9 +1372,14 @@ header .project-1 {
 }
 
 .project-image {
-  width: 100vw; /* Full width of the viewport */
-  height: auto; /* Maintain aspect ratio */
-}
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100% !important;
+    min-height: 100px !important; /* Force it to take up space */
+    background-color: red !important; /* Visual debug aid */
+  }
+  
 
 @media (max-width: 768px) {
   .project-image {
