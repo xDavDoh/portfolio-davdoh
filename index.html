@@ -34,6 +34,49 @@
             <li><a href="mailto:dav.doh.desgin@gmail.com" class="email-button-mobile" onclick="toggleMenu()">Email me</a></li>
         </ul>
     </div>
+
+
+<script>
+        function copyEmail() {
+          const email = 'dav.doh.desgin@gmail.com';
+    
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(email).then(() => {
+              alert('Email address copied to clipboard!');
+            }).catch(err => {
+              fallbackCopyText(email);
+            });
+          } else {
+            fallbackCopyText(email);
+          }
+        }
+    
+        function fallbackCopyText(text) {
+          const textarea = document.createElement('textarea');
+          textarea.value = text;
+          textarea.setAttribute('readonly', '');
+          textarea.style.position = 'absolute';
+          textarea.style.left = '-9999px';
+          document.body.appendChild(textarea);
+          textarea.select();
+          try {
+            document.execCommand('copy');
+            alert('Email address copied to clipboard!');
+          } catch (err) {
+            alert('Failed to copy email. Please copy it manually.');
+          }
+          document.body.removeChild(textarea);
+        }
+    
+        document.addEventListener('DOMContentLoaded', () => {
+          const emailButton = document.querySelector('.copy-email-btn');
+          if (emailButton) {
+            emailButton.addEventListener('click', copyEmail);
+          }
+        });
+      </script>
+    
+
     <section id="banner">
         <div class="banner-content">
             <h1>David Doherty</h1>

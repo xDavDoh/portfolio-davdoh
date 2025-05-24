@@ -104,21 +104,21 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // ===== EMAIL FUNCTIONALITY =====
   
-  // Copy email function
-  function copyEmail() {
-    const email = 'dav.doh.design@gmail.com';
-    navigator.clipboard.writeText(email).then(() => {
-      alert('Email address copied to clipboard!');
-    }).catch(err => {
-      console.error('Failed to copy email: ', err);
-    });
-  }
+  // // Copy email function
+  // function copyEmail() {
+  //   const email = 'dav.doh.design@gmail.com';
+  //   navigator.clipboard.writeText(email).then(() => {
+  //     alert('Email address copied to clipboard!');
+  //   }).catch(err => {
+  //     console.error('Failed to copy email: ', err);
+  //   });
+  // }
   
-  // Setup email copy button
-  const emailButton = document.querySelector('.copy-email-btn');
-  if (emailButton) {
-    emailButton.addEventListener('click', copyEmail);
-  }
+  // // Setup email copy button
+  // const emailButton = document.querySelector('.copy-email-btn');
+  // if (emailButton) {
+  //   emailButton.addEventListener('click', copyEmail);
+  // }
   
   // ===== FILTER FUNCTIONALITY =====
   
