@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Copy email function
   function copyEmail() {
-    const email = 'your-email@example.com';
+    const email = 'dav.doh.design@gmail.com';
     navigator.clipboard.writeText(email).then(() => {
       alert('Email address copied to clipboard!');
     }).catch(err => {

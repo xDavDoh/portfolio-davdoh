@@ -899,7 +899,7 @@ body {
 }
 
 .feedback-name {
-  font-size: 12px; /* Shrinks the font size */
+  font-size: 16px; /* Shrinks the font size */
   margin-bottom: 10px; /* Adds space between name and text */
 }
 
@@ -944,7 +944,7 @@ body {
 .feedback-name {
   font-weight: bold;
   margin-top: 1rem;
-  font-size: clamp(14px, 2vw, 12px); /* Use clamp for responsive font size */
+  font-size: clamp(16px, 2vw, 12px); /* Use clamp for responsive font size */
 }
 
 
@@ -1706,7 +1706,7 @@ h4 {
 
 h4 .material-icons {
   margin-left: 8px; /* Adjust spacing as needed */
-  font-size: 1em; /* Normal screen size */
+  font-size: 2em; /* Normal screen size */
   line-height: 1; /* Ensures the icon aligns properly with the text */
   padding: 4px; /* Restores padding within the span */
   vertical-align: bottom; /* Align the bottom of the icon with the text */
@@ -1726,7 +1726,7 @@ h3 {
 
 h3 .material-icons {
   margin-left: 8px; /* Adjust spacing as needed */
-  font-size: 1em; /* Ensures the icon matches the height of the text */
+  font-size: 2em; /* Ensures the icon matches the height of the text */
   line-height: 1; /* Ensures the icon aligns properly with the text */
 }
 
