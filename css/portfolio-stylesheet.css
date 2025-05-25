@@ -1117,11 +1117,11 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Default images for normal screens
+Default images for normal screens
 .project-image {
   width: 100%;
   height: auto;
-} */
+}
 
 @media (max-width: 768px) {
   .project-image {
@@ -1370,15 +1370,16 @@ header .project-1 {
   overflow: hidden; Hide any overflow
 }
 
+/* Project image styles */
+.project-image-container {
+  width: 100vw; /* Full width of the viewport */
+  overflow: hidden; /* Hide any overflow */
+}
+
 .project-image {
-    display: block !important;
-    width: 100% !important;
-    height: auto !important;
-    max-width: 100% !important;
-    min-height: 100px !important; /* Force it to take up space */
-    background-color: red !important; /* Visual debug aid */
-  }
-  
+  width: 100vw; /* Full width of the viewport */
+  height: auto; /* Maintain aspect ratio */
+}
 
 @media (max-width: 768px) {
   .project-image {
@@ -1726,7 +1727,7 @@ h3 {
 
 h3 .material-icons {
   margin-left: 8px; /* Adjust spacing as needed */
-  font-size: 2em; /* Ensures the icon matches the height of the text */
+  font-size: 1em; /* Ensures the icon matches the height of the text */
   line-height: 1; /* Ensures the icon aligns properly with the text */
 }
 
@@ -1737,3 +1738,20 @@ h3 .material-icons {
   }
 }
 
+
+
+    .image-description {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 0 20px;
+        font-style: italic;
+        color: #333;
+        font-size: 2.5vw; /* Responsive font size based on screen width */
+      }
+  
+      @media (min-width: 1000px) {
+        .image-description {
+          font-size: 1.2rem; /* Cap font size on large screens */
+        }
+      }
+  
