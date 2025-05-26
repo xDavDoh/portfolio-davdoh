@@ -1245,7 +1245,9 @@ header .project-1 {
   margin-bottom: 0.5rem; /* Reduce spacing below the header */
 }
 
-.star-component-content {
+.star-component-content,
+.star-component-content ul,
+.star-component-content li {
   max-width: 768px; /* Standard width */
   width: 100%;
   margin: 0 auto; /* Center the content */
@@ -1254,23 +1256,29 @@ header .project-1 {
 
 @media (max-width: 768px) {
   .h2-star-component,
-  .star-component-content {
+  .star-component-content,
+  .star-component-content ul,
+  .star-component-content li {
       padding: 0 1rem; /* Adjust padding for tablets */
   }
 
-  .h2-star-component {
+  .h2-star-component, {
       font-size: 2rem; /* Adjust font size for tablets */
       margin-bottom: 0.25rem; /* Adjust spacing for tablets */
   }
 
-  .star-component-content {
+  .star-component-content,
+  .star-component-content ul,
+  .star-component-content li {
       padding: 1rem 1rem 0 1rem; /* Adjust padding for tablets */
   }
 }
 
 @media (max-width: 480px) {
   .h2-star-component,
-  .star-component-content {
+  .star-component-content,
+  .star-component-content ul,
+  .star-component-content li {
       padding: 0 1rem; /* Adjust padding for mobile devices */
   }
 
@@ -1279,12 +1287,19 @@ header .project-1 {
       margin-bottom: 0.25rem; /* Adjust spacing for mobile devices */
   }
 
-  .star-component-content {
+  .star-component-content,
+  .star-component-content ul,
+  .star-component-content li {
       padding: 1rem 1rem 0 1rem; /* Adjust padding for mobile devices */
   }
 }
 
-.star-component-content p {
+.star-component-content p,
+.star-component-content ul,
+.star-component-content li,
+.custom-details,
+.custom-summary,
+.custom-details-content {
   font-size: 1.5rem; /* Match font size */
   margin: 0.5rem 0; /* Adjust spacing */
   font-weight: normal;
@@ -1292,13 +1307,23 @@ header .project-1 {
 
 /* Responsive styles */
 @media (max-width: 768px) {
-  .star-component-content p {
+  .star-component-content p,
+  .star-component-content ul,
+  .star-component-content li,
+  .custom-details,
+  .custom-summary,
+  .custom-details-content {
       font-size: 1.2rem; /* Adjust font size for tablets */
   }
 }
 
 @media (max-width: 480px) {
-  .star-component-content p {
+  .star-component-content p,
+  .star-component-content ul,
+  .star-component-content li,
+  .custom-details,
+  .custom-summary,
+  .custom-details-content {
       font-size: 1rem; /* Adjust font size for mobile devices */
   }
 }
@@ -1740,18 +1765,53 @@ h3 .material-icons {
 
 
 
-    .image-description {
-        max-width: 800px;
-        margin: 20px auto;
-        padding: 0 20px;
-        font-style: italic;
-        color: #333;
-        font-size: 2.5vw; /* Responsive font size based on screen width */
-      }
+
+  document.querySelectorAll('a.external-link').forEach(link => {
+      link.setAttribute('target', '_blank');
+      link.setAttribute('rel', 'noopener noreferrer'); // for security
+    });
   
-      @media (min-width: 1000px) {
-        .image-description {
-          font-size: 1.2rem; /* Cap font size on large screens */
-        }
-      }
-  
+
+
+
+
+  .custom-details {
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          padding: 1em;
+          margin-bottom: 1em;
+          background-color: #f9f9f9;
+        }
+    
+        .custom-summary {
+          font-weight: bold;
+          text-decoration: underline;
+          color: #1d70b8;
+          cursor: pointer;
+          position: relative;
+          padding-right: 1.5em;
+        }
+    
+        .custom-summary::after {
+          content: "▼";
+          position: absolute;
+          right: 0;
+          transition: transform 0.3s ease;
+        }
+    
+        details[open] .custom-summary::after {
+          transform: rotate(180deg);
+        }
+    
+
+    .custom-details-content {
+        margin-top: 0.2em;
+        padding-left: 0.5em;
+        color: #333;
+      }
+      
+    
+
+      .project-h3 h3 {
+        font-size: clamp(24px, 2.5vw, 18px); /* Use clamp for responsive font size */
+      }
